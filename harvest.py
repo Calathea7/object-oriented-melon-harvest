@@ -14,6 +14,7 @@ class MelonType(object):
         self.color = color
         self.is_seedless = is_seedless
         self.is_bestseller = is_bestseller
+        self.name = name
 
         self.pairings = []
 
@@ -33,14 +34,32 @@ def make_melon_types():
 
     all_melon_types = []
 
-    # Fill in the rest
+    musk = MelonType('musk', 1998, 'green', True, True, 'Muskmelon')
+    musk.add_pairing('mint')
+
+    cas = MelonType('cas', 2003, 'orange', False, False, 'Casaba')
+    cas.add_pairing('strawberries')
+    cas.add_pairing('mint')
+    
+    cren = MelonType('cren', 1996, 'green', False, False, 'Crenshaw')
+    cren.add_pairing('proscuitto')
+
+    yw = MelonType('yw', 2013, 'yellow', False, True, 'Yellow Watermelon')
+    yw.add_pairing('ice cream')
+
+    for melon in [musk, cas, cren, yw]:
+        all_melon_types.append(melon)
 
     return all_melon_types
 
 def print_pairing_info(melon_types):
     """Prints information about each melon type's pairings."""
 
-    # Fill in the rest
+    for melon_type in melon_types:
+        print(f'{melon_type.name} pairs with {melon_type.pairing}')
+            
+
+
 
 def make_melon_type_lookup(melon_types):
     """Takes a list of MelonTypes and returns a dictionary of melon type by code."""
